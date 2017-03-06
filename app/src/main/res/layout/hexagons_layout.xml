@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <RelativeLayout
+        android:id="@+id/relative_rectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:background="#9999ff"
+        android:alpha=".4">
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hexagon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:gravity="center">
+
+        <com.wishall.spellathon.HexagonImageView
+            android:id="@+id/imageView_hexagon"
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/blue_back"/>
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="a"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hexagon1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="150dp"
+        android:gravity="center">
+
+        <com.wishall.spellathon.HexagonImageView
+            android:id="@+id/imageView_hexagon1"
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/blue_back" />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="b"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hexagon2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center">
+
+        <com.wishall.spellathon.HexagonImageView
+            android:id="@+id/imageView_hexagon2"
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/blue_back" />
+
+        <TextView
+            android:id="@+id/textview3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="c"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hexagon3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="100dp"
+        android:gravity="center">
+
+        <com.wishall.spellathon.HexagonImageView
+            android:id="@+id/imageView_hexagon3"
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/blue_back" />
+
+        <TextView
+            android:id="@+id/textview4"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="d"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hexagon4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="200dp"
+        android:gravity="center">
+
+        <com.wishall.spellathon.HexagonImageView
+            android:id="@+id/imageView_hexagon4"
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/blue_back" />
+
+        <TextView
+            android:id="@+id/textview5"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="e"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hexagon5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="50dp"
+        android:gravity="center">
+
+        <com.wishall.spellathon.HexagonImageView
+            android:id="@+id/imageView_hexagon5"
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/blue_back" />
+
+        <TextView
+            android:id="@+id/textview6"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="f"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hexagon6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="150dp"
+        android:gravity="center">
+
+        <com.wishall.spellathon.HexagonImageView
+            android:id="@+id/imageView_hexagon6"
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/blue_back" />
+
+        <TextView
+            android:id="@+id/textview7"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="g"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+    <!--   <TextView
+          android:id="@+id/textView_word"
+         android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginTop="200dp"
+          android:background="#ffbb33"
+          android:text=""/> -->
+
+</RelativeLayout>
+

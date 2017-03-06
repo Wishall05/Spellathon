@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F48CC"
+    >
+    <com.wishall.spellathon.BackSurfaceView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/surface_back"
+        />
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/app_content"
+        android:background="@drawable/underwater3"
+        android:alpha=".7">
+
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/button_normal_play"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape_play1"
+            android:text="PLAY" />
+
+        <Button
+            android:id="@+id/button_time_play"
+            android:layout_marginTop="30dp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape_play1"
+            android:text="TIME CHALLENGE" />
+
+    </LinearLayout>
+</FrameLayout>

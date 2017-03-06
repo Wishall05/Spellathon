@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_quit_dialog"
+    android:layout_width="300dp"
+    android:layout_height="250dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/button_shape_play1"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/button_shape_play" >
+
+    <ImageButton
+        android:id="@+id/iv_quit"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:background="@drawable/quit1"/>
+
+    <!--<TextView
+        android:id="@+id/tv_quit"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Quit"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />-->
+
+    <TextView
+        android:id="@+id/tv_quit_description"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Do You Really Want to exit \nSPELLATHON MASTER?"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="4dp">
+
+        <Button
+            android:id="@+id/button_quit_dialog_yes"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/yes" />
+
+        <Button
+            android:id="@+id/button_quit_dialog_no"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/no"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+</LinearLayout>

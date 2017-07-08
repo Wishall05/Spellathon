@@ -8,16 +8,19 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-public class Launch extends Activity implements OnClickListener {
+public class Launch extends Activity implements OnClickListener{
 
     Button bPlay, bTimePlay;
     boolean timeMode;
+    BackSurfaceView sfvTrack;
+    SurfaceHolder sfhTrack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -34,9 +37,9 @@ public class Launch extends Activity implements OnClickListener {
     private void init() {
         // TODO Auto-generated method stub
 
-        BackSurfaceView sfvTrack = (BackSurfaceView) findViewById(R.id.surface_back);
+        sfvTrack = (BackSurfaceView) findViewById(R.id.surface_back);
       //  sfvTrack.setZOrderOnTop(true);    // necessary
-        SurfaceHolder sfhTrack = sfvTrack.getHolder();
+        sfhTrack = sfvTrack.getHolder();
         sfhTrack.setFormat(PixelFormat.TRANSLUCENT);
 
         bPlay = (Button)findViewById(R.id.button_normal_play);
@@ -56,12 +59,23 @@ public class Launch extends Activity implements OnClickListener {
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
+        //sfvTrack.surfaceCreated(sfhTrack);
     }
 
     @Override
     protected void onPause() {
         // TODO Auto-generated method stub
         super.onPause();
+       // sfvTrack.surfaceDestroyed(sfhTrack);
+
+    }
+
+    @Override
+    protected void onStop() {
+        // TODO Auto-generated method stub
+        super.onStop();
+        //sfvTrack.setVisibility(View.GONE);
+
     }
 
     @Override
@@ -79,14 +93,14 @@ public class Launch extends Activity implements OnClickListener {
                 Intent startNormalGame = new Intent(Launch.this, Game.class);
                 startNormalGame.putExtra("Mode", timeMode);
                 Launch.this.startActivity(startNormalGame);
-                overridePendingTransition(0, 0);
+               // overridePendingTransition(0, 0);
                 break;
             case R.id.button_time_play:
                 timeMode = true;
                 Intent startTimedGame = new Intent(Launch.this, Game.class);
                 startTimedGame.putExtra("Mode", timeMode);
                 Launch.this.startActivity(startTimedGame);
-                overridePendingTransition(0, 0);
+               // overridePendingTransition(0, 0);
                 break;
         }
 

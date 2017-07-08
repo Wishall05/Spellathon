@@ -69,7 +69,7 @@ public class SpellAlgo {
             Log.d("vishal", "hm has " + hm.get("abljc"));
             Log.d("vishal", "Length7list has words = " + Length7List.size());
             size7List = Length7List.size();
-            //play();
+            //playLongSound();
 
             br.close();
         } catch (IOException e) {
@@ -102,7 +102,7 @@ public class SpellAlgo {
 		   Log.d("vishal", "key: " + key + " value:" + hmAns.get(key));
 		}*/
         //remove anyCh from  anyWord
-        Log.d("vishal", "play hmAns Size: " + hmAns.size());
+        Log.d("vishal", "playLongSound hmAns Size: " + hmAns.size());
         if(hmAns.size()>=10 && hmAns.size()<=40) {
             String restStr = anyWord.replaceFirst(""+anyCh, "");
             Log.d("vishal", "restStr: " + restStr);
@@ -111,7 +111,7 @@ public class SpellAlgo {
             game.setMainCh(anyCh);
             game.setHmAns(hmAns);
         }else{
-            Log.d("vishal", "play calling play again");
+            Log.d("vishal", "playLongSound calling playLongSound again");
             play();
             return;
         }

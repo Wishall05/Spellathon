@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
 
     >
-    <com.wishall.spellathon.BackSurfaceView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/surface"
-         />
+    <!--<com.wishall.spellathon.BackSurfaceView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/surface"-->
+         <!--/>-->
     <FrameLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/app_content"

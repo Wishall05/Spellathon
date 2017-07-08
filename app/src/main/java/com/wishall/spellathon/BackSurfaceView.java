@@ -97,6 +97,7 @@ public class BackSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         //this.getHolder().setFormat(PixelFormat.TRANSPARENT);
+        getHolder().addCallback(this);
         drawClock = new DrawClock(getHolder(), getResources());
         drawClock.setRunning(true);
         drawClock.start();

@@ -1,6 +1,5 @@
 package com.wishall.spellathon;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
@@ -8,29 +7,15 @@ import java.util.Set;
 
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Paint.Style;
-import android.graphics.Path;
-import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable.Orientation;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.PathShape;
-import android.graphics.drawable.shapes.Shape;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.text.format.DateFormat;
 import android.text.format.Time;
 import android.util.DisplayMetrics;
@@ -38,26 +23,19 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
+import com.wishall.spellathon.com.wishall.spellathon.webview.WordClickListener;
 
 
 public class Game extends Activity {
@@ -74,10 +52,12 @@ public class Game extends Activity {
     private LinearLayout llAns;
     private ImageButton bShuffle, bHints;
     private Random randomno;
+    boolean isGuessed[];
     TextView tvAns[];
     Music music;
     int tvAnsStatus[];
     boolean timeMode;
+    private WordClickListener wordClickListener;
 
     private static CountDownTimer gameTimer;
     private long millisecLeft;
@@ -129,7 +109,7 @@ public class Game extends Activity {
 
     private void init() {
         // TODO Auto-generated method stub
-        BackSurfaceView sfvTrack = (BackSurfaceView) findViewById(R.id.surface);
+       // BackSurfaceView sfvTrack = (BackSurfaceView) findViewById(R.id.surface);
       //  sfvTrack.setZOrderOnTop(true);    // necessary
         //sfvTrack.send
       //  SurfaceHolder sfhTrack = sfvTrack.getHolder();
@@ -141,8 +121,10 @@ public class Game extends Activity {
         wordArea = (WordArea)findViewById(R.id.word_area);
         hexsLayout = (CustomHexagonsLayout)findViewById(R.id.custom_hex_layout);
         llAns = (LinearLayout)findViewById(R.id.ll_answers);
+        llAns.setBackgroundColor(Color.parseColor("#77222222"));
         header = (Header)findViewById(R.id.header);
         hexsLayout.bringToFront();
+        wordClickListener = new WordClickListener(getApplicationContext());
 
         bShuffle = (ImageButton)findViewById(R.id.ib_shuffle);
         bHints = (ImageButton)findViewById(R.id.ib_hint);
@@ -213,6 +195,7 @@ public class Game extends Activity {
                     LayoutParams.MATCH_PARENT, rowHeight));
             //llRowsAns[rowNo].setBackgroundColor(Color.CYAN);
             llAns.addView(llRowsAns[rowNo]);
+
             int colWidth = llAns.getWidth() / totalColNo;
             Log.d("vishal", "onStart colWidth " + colWidth);
             colNo = 0;
@@ -225,6 +208,8 @@ public class Game extends Activity {
                 } else
                     key = "";
                 tvAns[tvNo] = new TextView(this);
+                tvAns[tvNo].setOnClickListener(wordClickListener);
+
                 tvAns[tvNo].setText(key);
                 tvAns[tvNo].setTypeface(Typeface.SANS_SERIF, Typeface.BOLD_ITALIC);
                // tvAns[tvNo].setAlpha(.8f);
@@ -247,6 +232,7 @@ public class Game extends Activity {
 
             rowNo++;
         }
+        enableTvAnsClicking(false);
         Set<String> keySet1 = hmAns.keySet();
         Iterator<String> keySetIterator1 = keySet1.iterator();
         while (keySetIterator1.hasNext()) {
@@ -265,6 +251,12 @@ public class Game extends Activity {
                 android.R.layout.simple_list_item_1, ansList);
 		//hexsLayout.setBackgroundColor(Color.YELLOW);
         gvAns.setAdapter(adapter);*/
+    }
+
+    private void enableTvAnsClicking(boolean b) {
+        for(int i=0; i<tvAns.length; i++) {
+            tvAns[i].setClickable(b);
+        }
     }
 
     private void setAnwsersTexts() {
@@ -514,15 +506,23 @@ public class Game extends Activity {
         final Dialog answerDialog = new Dialog(this);
         answerDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         answerDialog.setContentView(R.layout.answers);
+
         Button buttonHome = (Button) answerDialog.findViewById(R.id.button_answers_home);
         Button buttonNextGame = (Button)answerDialog.findViewById(R.id.button_answers_next_game);
         final LinearLayout answers = (LinearLayout)answerDialog.findViewById(R.id.ll1_answers);
 
 
+        enableTvAnsClicking(true);
         Set<String> keySet = hmAns.keySet();
         Iterator<String> keySetIterator = keySet.iterator();
         while (keySetIterator.hasNext()) {
             String key = keySetIterator.next();
+            int wordIndex = hmAns.get(key);
+            if(tvAnsStatus[wordIndex] == STATUS_SHOW) {
+                tvAns[wordIndex].setTextColor(Color.parseColor("#006400"));
+            } else {
+                tvAns[wordIndex].setTextColor(Color.RED);
+            }
             tvAns[hmAns.get(key)].setText(key);
         }
         //((LinearLayout)findViewById(R.id.relativelayout_main)).removeAllViews();
@@ -531,6 +531,7 @@ public class Game extends Activity {
             parent.removeView(llAns);
         }
         setTvAnsStatus(STATUS_SHOW);
+        llAns.setBackgroundColor(Color.WHITE);
         answers.addView(llAns);
         buttonHome.setOnClickListener(new OnClickListener() {
             @Override
@@ -635,7 +636,7 @@ public class Game extends Activity {
 
     public void playSound(int resoId) {
         if(wordArea.getCharCount()<8) {
-            music.play(resoId);
+            music.playLongSound(resoId);
         }
     }
 }

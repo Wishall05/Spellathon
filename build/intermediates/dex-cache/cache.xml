@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_98c0810deae3bf419f8fefa22fbb2add148fe8e7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/vipandey/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_91fb189dc2e82cb373d9d01a56bdcfe4c05b91a7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/vipandey/.android/build-cache/7a6c48156970e77d79a9cef99ac3e9bf85b620e1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3d1b3d2d1d49cd8ad11ea9f896df1cc7b5c7e390/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/vipandey/.android/build-cache/8afbd3b373a1aa921ecd5e31a1474299584b3665/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_61c222931774449f37bb1f60c67116d2cb2644c3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/vipandey/.android/build-cache/f68b3115f58daad83aae0da487ebcce05a21311d/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c5959570ea0451f88d65f4bffd68b58e78b8dcd7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="98be54b075d6ce8e470f44673499ff841032e437">
+        <dex dex="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2960fa43e22383506a82e68008bbbfd7c49279d4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/vipandey/.android/build-cache/67c489bcb7068bbc3e2668a679ae44a6b179323f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_687b28ebf72d19f7c30c37d81d1357a7edf5ffa1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/vipandey/.android/build-cache/7a6c48156970e77d79a9cef99ac3e9bf85b620e1/output/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/vipandey/Documents/android/workspace/Spellathon/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_a420a78285bf13fe49d85691e849f80b0ff9ae62/classes.dex" />
+    </item>
+
+</items>

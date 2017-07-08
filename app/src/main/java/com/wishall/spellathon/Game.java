@@ -69,6 +69,7 @@ public class Game extends Activity {
     private final static int STATUS_HIDE = 0;
     private final static int STATUS_HINT = 1;
     private final static int STATUS_SHOW = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +120,7 @@ public class Game extends Activity {
         randomno = new Random();
         spellAlgo = new SpellAlgo(this);
         wordArea = (WordArea)findViewById(R.id.word_area);
+        wordArea.clear();
         hexsLayout = (CustomHexagonsLayout)findViewById(R.id.custom_hex_layout);
         llAns = (LinearLayout)findViewById(R.id.ll_answers);
         llAns.setBackgroundColor(Color.parseColor("#77222222"));
@@ -310,6 +312,8 @@ public class Game extends Activity {
     public char getMainCh() {
         return mainCh;
     }
+
+    //set centre character
     public void setMainCh(char mainCh) {
         this.mainCh = mainCh;
         Log.d("vishal", "game setMainCh "+mainCh);
@@ -324,10 +328,13 @@ public class Game extends Activity {
     public HashMap<String, Integer> getHmAns() {
         return hmAns;
     }
+
     public void setHmAns(HashMap<String, Integer> hmAns) {
         this.hmAns = hmAns;
         Log.d("vishal", "game setHmAns "+hmAns.toString());
     }
+
+    //called when hexagon is clicked
     public void addChar(char ch) {
         // TODO Auto-generated method stub
         //
@@ -338,7 +345,7 @@ public class Game extends Activity {
             if(tvAnsStatus[in] != STATUS_SHOW) {
                 tvAnsStatus[in]= STATUS_SHOW;
                 tvAns[in].setText(str);
-                wordArea.setText("");
+                wordArea.clear();
                 addScore(str);
                 music.playSound(R.raw.success);
             }
@@ -511,6 +518,7 @@ public class Game extends Activity {
         Button buttonNextGame = (Button)answerDialog.findViewById(R.id.button_answers_next_game);
         final LinearLayout answers = (LinearLayout)answerDialog.findViewById(R.id.ll1_answers);
 
+        wordArea.clear();
 
         enableTvAnsClicking(true);
         Set<String> keySet = hmAns.keySet();

@@ -241,7 +241,7 @@ public class CustomHexagonsLayout extends RelativeLayout{
             // textView2.setText(relHexView2.getWidth()+" "+relHexView2.getLeft());
         }
     }
-
+    //called when hexagon is clicked
     public void addChar(char ch) {
         game.addChar(ch);
     }

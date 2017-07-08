@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.Toast;
 
 public class WordArea extends RelativeLayout{
 
@@ -47,6 +48,7 @@ public class WordArea extends RelativeLayout{
 		/*LinearLayout.LayoutParams crossParams = (LinearLayout.LayoutParams) ivcross.getLayoutParams();
 		crossParams.width = ivcross.getHeight();
 		ivcross.setLayoutParams(crossParams);*/
+        Toast.makeText(getContext(), "called wordarea", Toast.LENGTH_SHORT).show();
 
         ivcross.setOnClickListener(new View.OnClickListener() {
 
@@ -87,10 +89,12 @@ public class WordArea extends RelativeLayout{
     }
 
     public void add(char ch){
-        tvword.setText(tvword.getText().toString()+ch);
+        if(tvword.length() < 7) {
+            tvword.setText(tvword.getText().toString() + ch);
+        }
 
     }
-    private void clear() {
+    public void clear() {
         tvword.setText("");
     }
 

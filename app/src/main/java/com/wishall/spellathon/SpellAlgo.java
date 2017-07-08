@@ -9,10 +9,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import android.content.res.AssetManager;
 import android.util.Log;
@@ -20,8 +18,8 @@ import android.util.Log;
 public class SpellAlgo {
 
     private Game game;
-    private static HashMap<String, Integer> hm;
-    private static HashMap<String, Integer> hmAns;
+    private static HashMap<String, Integer> hmWords;
+    private static HashMap<String, Integer> hmWordsAns;
     private static ArrayList Length7List;
     private static Random randomno;
     private static int size7List;
@@ -29,21 +27,19 @@ public class SpellAlgo {
 
     public SpellAlgo() {
         super();
-        // TODO Auto-generated constructor stub
         init();
     }
 
     public SpellAlgo(Game game) {
         super();
-        // TODO Auto-generated constructor stub
         this.game = game;
         init();
     }
 
     private void init() {
         // TODO Auto-generated method stub
-        AssetManager am = game.getAssets();
-        hm = new HashMap<String, Integer>();
+        final AssetManager am = game.getAssets();
+        hmWords = new HashMap<String, Integer>();
         Length7List = new ArrayList();
         randomno = new Random();
         try {
@@ -56,17 +52,17 @@ public class SpellAlgo {
             while (s != null)
 
             {
-                hm.put(s, 1);
+                hmWords.put(s, 1);
                 if (s.length() == 7) {
                     Length7List.add(s);
                 }
                 s = br.readLine();
 
             }
-            Log.d("vishal", "hm has " + hm.get("love"));
-            Log.d("vishal", "hm has " + hm.get("vishal"));
-            Log.d("vishal", "hm has " + hm.get("animal"));
-            Log.d("vishal", "hm has " + hm.get("abljc"));
+            Log.d("vishal", "hmWords has " + hmWords.get("love"));
+            Log.d("vishal", "hmWords has " + hmWords.get("vishal"));
+            Log.d("vishal", "hmWords has " + hmWords.get("animal"));
+            Log.d("vishal", "hmWords has " + hmWords.get("abljc"));
             Log.d("vishal", "Length7list has words = " + Length7List.size());
             size7List = Length7List.size();
             //playLongSound();
@@ -81,7 +77,7 @@ public class SpellAlgo {
 
 
     public void play() {
-        hmAns = new HashMap<String, Integer>();
+        hmWordsAns = new HashMap<String, Integer>();
 
         int anyNum = randomno.nextInt(size7List);
         int anyChNum = randomno.nextInt(LEN);
@@ -90,34 +86,29 @@ public class SpellAlgo {
         Log.d("vishal", "anyNum = " + anyNum);
         Log.d("vishal", "anyWord = " + anyWord);
         Log.d("vishal", "anyCh = " + anyCh);
+
         printCombination(anyWord, 7, 4, anyCh);
         printCombination(anyWord, 7, 5, anyCh);
         printCombination(anyWord, 7, 6, anyCh);
         printCombination(anyWord, 7, 7, anyCh);
 
-		/*Set<String> keySet = hmAns.keySet();
-		Iterator<String> keySetIterator = keySet.iterator();
-		while (keySetIterator.hasNext()) {
-		   String key = keySetIterator.next();
-		   Log.d("vishal", "key: " + key + " value:" + hmAns.get(key));
-		}*/
-        //remove anyCh from  anyWord
-        Log.d("vishal", "playLongSound hmAns Size: " + hmAns.size());
-        if(hmAns.size()>=10 && hmAns.size()<=40) {
+        Log.d("vishal", "playLongSound hmWordsAns Size: " + hmWordsAns.size());
+        if(hmWordsAns.size()>=10 && hmWordsAns.size()<=40) {
             String restStr = anyWord.replaceFirst(""+anyCh, "");
             Log.d("vishal", "restStr: " + restStr);
             //Shuffle anyWord
             game.setRestStr(shuffle(restStr));
             game.setMainCh(anyCh);
-            game.setHmAns(hmAns);
+            game.setHmAns(hmWordsAns);
         }else{
-            Log.d("vishal", "playLongSound calling playLongSound again");
+            Log.d("vishal", "calling play again to find 7 char strings that meets validation");
             play();
             return;
         }
 
     }
 
+    //shuffle all characters of input, input doesn't contain centre character
     public String shuffle(String input){
         List<Character> characters = new ArrayList<Character>();
         for(char c:input.toCharArray()){
@@ -191,11 +182,11 @@ public class SpellAlgo {
         int i;
         if (left == right) {
             // System.out.println(array);
-            // System.out.println("***"+hm.get(wish));
+            // System.out.println("***"+hmWords.get(wish));
             String pWord = new String(array);
-            if (hm.get(pWord) != null) {
+            if (hmWords.get(pWord) != null) {
                 //Log.d("vishal", pWord);
-                hmAns.put(pWord, 1);
+                hmWordsAns.put(pWord, 1);
             }
         } else {
             for (i = left; i <= right; i++) {
